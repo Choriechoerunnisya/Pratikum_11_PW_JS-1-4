@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luas Lingkaran</title>
+    <script>
+
+        function hitung_biaya(){
+        const per2jam = 3000;
+        const sejam = 1000;
+
+        let masuk = document.getElementById("msk").value;
+        let keluar = document.getElementById("klr").value;
+        let selisih = keluar - masuk;
+        let biaya = 0;
+
+        if(selisih <= 2 ){
+            biaya = per2jam;
+        } else{
+            jam_tambahan = selisih - 2 ;
+            biaya = per2jam + (sejam * jam_tambahan);
+        }
+
+        let _hasil = document.getElementById("hasil");
+        _hasil.innerHTML = biaya;
+
+        }
+    </script>
+</head>
+<body>
+    <h2>Hitung Luas dan Keliling Lingkaran</h2>
+
+    <label for="radius">Jari-jari Lingkaran:</label>
+    <input type="number" id="radius" placeholder="Masukkan jari-jari">
+
+    <button onclick="hitung()">Hitung</button>
+
+    <div id="result"></div>
+
+    <script>
+        function hitung() {
+            var radius = parseFloat(document.getElementById("radius").value);
+
+            if (isNaN(radius)) {
+                alert("Masukkan angka yang valid untuk jari-jari!");
+                return;
+            }
+
+            var luas = Math.PI * radius * radius;
+            var keliling = 2 * Math.PI * radius;
+
+            var resultMessage = "Luas Lingkaran: " + luas.toFixed(2) + "<br>Keliling Lingkaran: " + keliling.toFixed(2);
+            document.getElementById("result").innerHTML = resultMessage;
+        }
+    </script>
+
+
+</body>
+</html>
